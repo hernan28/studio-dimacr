@@ -1,5 +1,4 @@
 import {defineType} from 'sanity'
-
 export default defineType({
   name: 'subcategory',
   type: 'document',
@@ -19,9 +18,18 @@ export default defineType({
       validation: Rule => Rule.required()
     },
     {
+      name: 'image',
+      type: 'image',
+      title: 'Image',
+      options: {
+        hotspot: true
+      }
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Description'
     }
   ]
 })
+
