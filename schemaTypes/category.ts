@@ -15,6 +15,22 @@ export default defineType({
       name: 'description',
       type: 'text',
       title: 'Description'
-    }
+    },
+    {
+      name: 'image',
+      type: 'image',
+      title: 'Category Image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'mostSearched',
+      type: 'boolean',
+      title: 'Mostrar en "Más buscado"',
+      description: 'Si está activo, esta categoría aparecerá en la sección de más buscados.',
+      initialValue: false,
+    },
+  
   ]
 })
