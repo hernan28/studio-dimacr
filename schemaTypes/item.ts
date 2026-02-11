@@ -9,35 +9,53 @@ export default defineType({
       name: 'title',
       type: 'string',
       title: 'Item Title',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'subcategory',
       type: 'reference',
       to: [{type: 'subcategory'}],
       title: 'Subcategory',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'images',
       type: 'array',
       title: 'Images',
       of: [{type: 'image'}],
-      options: {layout: 'grid'}
+      options: {layout: 'grid'},
     },
     {
-      // This field is always dollar price
       name: 'price',
       type: 'number',
       title: 'Price',
-      validation: Rule => Rule.required().min(0)
+      validation: (Rule) => Rule.precision(2).positive(),
     },
     {
       name: 'description',
       type: 'text',
-      title: 'Description'
-    }
-    // TODO: Add Brand??? 
+      title: 'Description',
+    },
+    {
+      name: 'sku',
+      type: 'number',
+      title: 'sku',
+    },
+
+    {
+      name: 'details',
+      title: 'Details',
+      type: 'array',
+      of: [
+        {
+          type: 'text',
+          rows: 1,
+        },
+      ],
+      initialValue: [''],
+    },
+
+    // TODO: Add Brand???
     // TODO: Add fields to handle offers, discounts, or other item-specific information as needed
-  ]
+  ],
 })
