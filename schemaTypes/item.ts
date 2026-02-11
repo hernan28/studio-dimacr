@@ -36,11 +36,6 @@ export default defineType({
       type: 'text',
       title: 'Description',
     },
-    {
-      name: 'sku',
-      type: 'number',
-      title: 'sku',
-    },
 
     {
       name: 'details',
@@ -54,6 +49,43 @@ export default defineType({
       ],
       initialValue: [''],
     },
+
+        {
+      name: 'sku',
+      type: 'number',
+      title: 'sku',
+    },
+
+
+{
+  name: 'peso',
+  title: 'Peso',
+  type: 'object',
+  fields: [
+    {
+      name: 'valor',
+      title: 'Valor',
+      type: 'number',
+    },
+    {
+      name: 'unidad',
+      title: 'Unidad',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'g', value: 'g' },
+          { title: 'kg', value: 'kg' },
+          { title: 'lb', value: 'lb' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+    },
+  ],
+  options: {
+    layout: 'inline',
+  },
+},
 
     // TODO: Add Brand???
     // TODO: Add fields to handle offers, discounts, or other item-specific information as needed
