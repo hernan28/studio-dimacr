@@ -33,6 +33,13 @@ export default defineType({
       validation: Rule => Rule.required().min(0)
     },
     {
+      name: 'availabilityInquiry',
+      type: 'boolean',
+      title: 'Consultar disponibilidad en lugar del precio',
+      description: 'Activa esta opción para ocultar el precio y mostrar “Consultar disponibilidad”.',
+      initialValue: false
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Description'

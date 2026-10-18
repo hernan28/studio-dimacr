@@ -15,6 +15,19 @@ export default defineType({
       name: 'description',
       type: 'text',
       title: 'Description'
+    },
+    {
+      name: 'image',
+      type: 'image',
+      title: 'Category Image',
+      options: {
+        hotspot: true
+      }
+    },
+    {
+      name: 'mostSearched',
+      type: 'boolean',
+      title: 'Show in Most Searched'
     }
   ]
 })
