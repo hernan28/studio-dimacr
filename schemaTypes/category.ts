@@ -20,14 +20,13 @@ export default defineType({
       name: 'image',
       type: 'image',
       title: 'Category Image',
-      options: {
-        hotspot: true
-      }
+      options: {hotspot: true}
     },
     {
       name: 'mostSearched',
       type: 'boolean',
-      title: 'Show in Most Searched'
+      title: 'Show in “Más buscado por categoría”',
+      description: 'Enable this to show the category on the homepage.'
     }
   ]
 })

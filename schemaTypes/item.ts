@@ -193,6 +193,18 @@ export default defineType({
       }),
     },
     {
+      name: 'discountedPrice',
+      type: 'number',
+      title: 'Discounted Price',
+      description: 'Optional sale price. The regular price remains the original price.',
+      validation: Rule => Rule.min(0).custom((discountedPrice, context) => {
+        if (typeof discountedPrice !== 'number') return true
+
+        const price = (context.parent as {price?: number} | undefined)?.price
+        return typeof price !== 'number' || discountedPrice < price || 'Discounted price must be lower than the regular price.'
+      })
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Description'
