@@ -26,6 +26,16 @@ export default defineType({
       type: 'text',
     }),
     defineField({
+      name: 'mapsUrl',
+      title: 'Enlace de Google Maps',
+      description: 'Pega el enlace de Google Maps que abrirá el botón Obtener dirección.',
+      type: 'url',
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https'],
+        }),
+    }),
+    defineField({
       name: 'buttonText',
       title: 'Texto del botón',
       type: 'string',
