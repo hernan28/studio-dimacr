@@ -7,7 +7,7 @@ export default defineType({
   fields: [
     {
       name: 'image',
-      title: 'Imagen (1920 × 500 px recomendado)',
+      title: 'Imagen (670 × 80 px recomendado)',
       type: 'image',
       options: {hotspot: true},
       validation: (Rule) => Rule.required(),
@@ -15,7 +15,7 @@ export default defineType({
     {
       name: 'mobileImage',
       title: 'Imagen para teléfono (750 × 1000 px recomendado)',
-      description: 'Opcional. Se muestra en pantallas de teléfono; si se deja vacía, se usa la imagen principal.',
+      description: 'Opcional. Se muestra en pantallas de teléfono; si se deja vacía, la imagen principal conserva su proporción original.',
       type: 'image',
       options: {hotspot: true},
     },

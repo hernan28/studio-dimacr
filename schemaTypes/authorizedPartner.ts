@@ -34,10 +34,22 @@ export default defineType({
     defineField({
       name: 'website',
       title: 'Sitio web',
-      type: 'url',
+      description: 'Puedes pegar el dominio (www.ejemplo.com) o la URL completa (https://www.ejemplo.com).',
+      type: 'string',
       validation: (Rule) =>
-        Rule.required().uri({
-          scheme: ['http', 'https'],
+        Rule.required().custom((value) => {
+          if (typeof value !== 'string') return 'Ingresa un sitio web válido.'
+
+          try {
+            const url = new URL(
+              /^https?:\/\//i.test(value) ? value : `https://${value}`,
+            )
+            return ['http:', 'https:'].includes(url.protocol) && url.hostname.includes('.')
+              ? true
+              : 'Ingresa un dominio o una URL HTTP/HTTPS válida.'
+          } catch {
+            return 'Ingresa un dominio o una URL HTTP/HTTPS válida.'
+          }
         }),
     }),
     defineField({
